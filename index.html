@@ -17,12 +17,14 @@
               age:30
           }
           handleClick=(e)=>{
-            console.log(this.state);
+            this.setState({
+                name:'Imen',
+            });
           }
-          handleMouseOver(e){
+          handleMouseOver=(e)=>{
             console.log(e.target);
           }
-          handleCopy(e){
+          handleCopy=(e)=>{
               console.log('try being original')
           }
           render(){
