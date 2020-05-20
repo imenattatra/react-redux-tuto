@@ -22,6 +22,9 @@
           handleMouseOver(e){
             console.log(e.target);
           }
+          handleCopy(e){
+              console.log('try being original')
+          }
           render(){
               return(
                 <div className='app-content'>
@@ -29,6 +32,7 @@
                     <p>My name is { this.state.name }, i am { this.state.age }</p>
                     <button onClick={this.handleClick}>click me</button>
                     <button onMouseOver={this.handleMouseOver}>hover me</button>
+                    <p onCopy={this.handleCopy}>What we think, we become</p>
                 </div>
               )
           }
