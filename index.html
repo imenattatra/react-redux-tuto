@@ -16,11 +16,19 @@
               name:'Ruy',
               age:30
           }
+          handleClick(e){
+            console.log(e.target);
+          }
+          handleMouseOver(e){
+            console.log(e.target);
+          }
           render(){
               return(
                 <div className='app-content'>
                     <h1>Ninjaaa</h1>
                     <p>My name is { this.state.name }, i am { this.state.age }</p>
+                    <button onClick={this.handleClick}>click me</button>
+                    <button onMouseOver={this.handleMouseOver}>hover me</button>
                 </div>
               )
           }
