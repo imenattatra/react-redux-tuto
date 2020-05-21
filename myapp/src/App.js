@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import Ninjas from './Ninjas';
 
 class App extends  Component{
+  state={
+    ninjas:[
+      {name:'first',age:14,belt:'black',id:1},
+      {name:'second',age:12,belt:'white',id:2}
+    ]
+  }
   render(){
     return (
       <div className="App">
         <h1>react app</h1>
         <p>welcome</p>
-        <Ninjas name='Imen' age='26' belt='white'/>
-        <Ninjas name='Zolicoeur' age='36' belt='black'/>
+        <Ninjas ninjas={this.state.ninjas} />
       </div>
       );
   };
