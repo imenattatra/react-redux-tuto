@@ -9,13 +9,21 @@ class App extends  Component{
       {name:'second',age:12,belt:'white',id:2}
     ]
   }
+  addNinja=(ninja)=>{
+    ninja.id=Math.random();
+    let ninjas=[...this.state.ninjas,ninja]; // using spead operator
+    this.setState({
+      ninjas : ninjas
+    })
+    console.log(ninjas)
+  }
   render(){
     return (
       <div className="App">
         <h1>react app</h1>
         <p>welcome</p>
         <Ninjas ninjas={this.state.ninjas} />
-        <AddNinja />
+        <AddNinja addNinja={this.addNinja} />
       </div>
       );
   };
