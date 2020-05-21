@@ -7,7 +7,7 @@ class AddNinja extends  Component{
         belt:null
     }
     handleChange=(e)=>{
-        this.state({
+        this.setState({
             [e.target.id]:e.target.value
         })
     }
@@ -19,11 +19,11 @@ class AddNinja extends  Component{
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlfor="name">Name</label>
+                    <label htmlFor="name">Name</label>
                     <input type="text" id='name' onChange={this.handleChange}/>
-                    <label htmlfor="age">Age</label>
+                    <label htmlFor="age">Age</label>
                     <input type="text" id='age' onChange={this.handleChange}/>
-                    <label htmlfor="belt">Belt</label>
+                    <label htmlFor="belt">Belt</label>
                     <input type="text" id='belt' onChange={this.handleChange}/>
                     <button>Submit</button>
                 </form>
