@@ -3,7 +3,7 @@ import { NavLink, withRouter} from 'react-router-dom'
 
 const NavBar=(props)=> {
     setTimeout(()=>{
-        console.log(props)
+        //console.log(props)
     },2000)
     return (
         
