@@ -1,29 +1,25 @@
 import React,{Component} from 'react';
-import axios from 'axios';
-
+import { connect } from 'react-redux';
+import {deletePost} from '../actions/postActions'
 class Post extends Component{
 
-    state = {
-        post:null
+    
+    handleClick=()=>{
+        this.props.deletePost(this.props.post.id);
+        this.props.history.push('/')
     }
 
-    componentDidMount(){
-        let id = this.props.match.params.post_id;
-        axios.get('https://jsonplaceholder.typicode.com/posts/'+id)
-        .then(res => {
-            this.setState({
-                post:res.data
-            })
-        })
-
-    }
     render(){
 
-
-        const post = this.state.post ? (
+        const post = this.props.post ? (
             <div className="post">
-                <h4 className="cente">{this.state.post.title}</h4>
-                <p>{this.state.post.body}</p>
+                <h4 className="cente">{this.props.post.title}</h4>
+                <p>{this.props.post.body}</p>
+                <div className="center">
+                    <button className="btn grey" onClick={this.handleClick}>
+                        Delete post
+                    </button>
+                </div>
             </div>
         ) : (
             <div>Loading post...</div>
@@ -31,11 +27,27 @@ class Post extends Component{
 
         return(
             <div className="container">
-                <h4>{this.state.id}</h4>
+                <h4>{this.props.id}</h4>
                 {post}
             </div>
         )
     }
 }
 
-export default Post;
+const mapStateToProps=(state,ownProps)=>{
+    let id = ownProps.match.params.post_id
+    console.log(id)
+    return{
+        post: state.posts.find(post => post.id == id)
+    }
+}
+const mapDispatchToProps=(dispatch)=>{
+    return{
+
+        deletePost:(id)=>{
+            dispatch(deletePost(id))
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Post); //connect is a higher order component
