@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link , NavLink} from 'react-router-dom'
+import { NavLink, withRouter} from 'react-router-dom'
 
-const NavBar=()=> {
+const NavBar=(props)=> {
+    setTimeout(()=>{
+        console.log(props)
+    },2000)
     return (
         
         <nav>
@@ -18,4 +21,4 @@ const NavBar=()=> {
     );
   }
   
-  export default NavBar;
+  export default withRouter(NavBar);
